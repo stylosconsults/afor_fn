@@ -1,6 +1,7 @@
 import React from "react";
 import { Send } from "lucide-react";
 
+
 const Contact = () => {
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">

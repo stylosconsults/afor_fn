@@ -40,11 +40,11 @@ const ImpactSection = () => {
           }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>{" "}
-          <div className="relative grid md:grid-cols-2 gap-8 mb-16 p-8">
+          <div className="relative grid md:grid-cols-2 gap-8 mb-16 lg:p-8">
             {impactStats.map((stat, index) => (
               <div
                 key={index}
-                className=" p-20 rounded-lg shadow-md hover:shadow-xl transition-shadow flex items-center"
+                className=" p-10 lg:p-20 rounded-lg shadow-md hover:shadow-xl transition-shadow flex lg:items-center"
               >
                 <stat.icon className="w-12 h-12 text-primary mr-4" />
                 <div>

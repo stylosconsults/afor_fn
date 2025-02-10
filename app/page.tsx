@@ -9,6 +9,7 @@ import LatestProjects from "./appComponents/latesProject";
 import RecentProjects from "./appComponents/recentProject";
 import ImpactSection from "./appComponents/impact";
 import Testimonials from "./appComponents/testmonial";
+import Articles from "./appComponents/articles";
 
 export default function Home() {
   return (
@@ -17,11 +18,12 @@ export default function Home() {
       <About />
       <Impowerment />
       <OrganizationOverview />
-      <RecentProjects />
+      <LatestProjects />
       <WhatWeDo />
       <ImpactSection />
-      <LatestProjects />
+      <RecentProjects />
       <Testimonials />
+      <Articles />
       <Contact />
       <Footer />
     </div>

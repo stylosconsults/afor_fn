@@ -14,6 +14,7 @@ import {
   Twitter,
   Linkedin,
   Instagram,
+  Construction
 } from "lucide-react";
 import Link from "next/link";
 
@@ -23,7 +24,6 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    // Function to handle scroll and update active section
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]");
       const scrollPosition = window.scrollY + 100; // Offset for better detection
@@ -102,7 +102,14 @@ const Navbar = () => {
                 Kicukiro KK 515 Street Kigali, Rwanda
               </a>
             </div>
-
+            <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2">
+                <Construction className="h-6 w-6 text-yellow-600" />
+                <span className="font-semibold text-yellow-700">
+                  Website Under Construction
+                </span>
+              </div>
+            </div>
             {/* Contact Info - Collapsible on mobile */}
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0">
               <div className="flex items-center space-x-2">
