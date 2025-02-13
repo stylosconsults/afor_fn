@@ -5,7 +5,7 @@ const WhatWeDo = () => {
   const sections = [
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412747/group-3137670_mxidfa.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412692/children1_tyfzf7.jpg",
       title: "Technology & Education Access",
       description:
         "Programs: Offering digital literacy workshops and scholarships for marginalized students.",
@@ -14,7 +14,7 @@ const WhatWeDo = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412747/group-3137670_mxidfa.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205349/WhatsApp_Image_2025-02-10_at_12.56.11_ppgjks.jpg",
       title: "Food Security & Nutrition",
       description:
         "Initiatives: Supporting sustainable farming techniques and providing nutritional education to families.",
@@ -32,7 +32,7 @@ const WhatWeDo = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412747/group-3137670_mxidfa.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205349/WhatsApp_Image_2025-02-10_at_12.52.15_r62zqr.jpg",
       title: "Human Rights & Gender Equality",
       description:
         "Campaigns: Educating communities on human rights and addressing systemic gender inequities.",
@@ -41,7 +41,7 @@ const WhatWeDo = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412747/group-3137670_mxidfa.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205284/WhatsApp_Image_2025-02-10_at_11.26.10_ghnb1d.jpg",
       title: "Community Empowerment",
       description:
         "Focus: Capacity-building workshops and Voluntary Savings and Loans (VSL) initiatives.",
@@ -51,7 +51,7 @@ const WhatWeDo = () => {
   ];
 
   return (
-    <div className=" text-white">
+    <div className=" text-white" id="expertise">
       <div className="container font-serif mx-auto px-4 py-16">
         <InMotion>
           <h2 className="text-4xl font-bold text-center mb-16 text-secondary">

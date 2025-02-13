@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import Navbar from "../navbar/navbar";
 import InMotion from "@/utils/inMotion";
 
 interface CarouselImage {
@@ -29,12 +28,12 @@ const Hero = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412751/leadership_d8o2tu.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205283/WhatsApp_Image_2025-02-10_at_11.29.48_fa29s0.jpg",
       title: "Leadership Training For Marginalized Groups",
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737413417/foodInitiative_vfejok.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205349/WhatsApp_Image_2025-02-10_at_12.56.11_ppgjks.jpg",
       title: "Food Security Initiatives",
     },
     {
@@ -69,10 +68,6 @@ const Hero = () => {
   return (
     <div className=" font-serif min-h-screen text-white" id="home">
       {/* Background Carousel with Multiple Overlays */}
-      <div className="z-50 relative text-white">
-        <Navbar />
-      </div>
-
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {carouselImage.map((item, index) => (
           <div
@@ -86,13 +81,9 @@ const Hero = () => {
               alt={item.title}
               className="absolute w-full h-full object-cover"
             />
-            {/* Multiple overlay layers for better control */}
             <div className="absolute inset-0 bg-black opacity-40" />{" "}
-            {/* Base darkness */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />{" "}
-            {/* Top gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />{" "}
-            {/* Bottom gradient */}
           </div>
         ))}
       </div>

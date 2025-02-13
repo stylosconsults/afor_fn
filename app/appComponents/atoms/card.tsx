@@ -2,13 +2,14 @@ import React from "react";
 import { ChevronRight } from "lucide-react";
 
 export interface CardProps {
+  id:string
   image: string;
   category: string;
   title: string;
   description: string;
 }
 
-const Card: React.FC<CardProps> = ({ image, category, title, description }) => {
+const Card: React.FC<CardProps> = ({ image, category, title, description, id }) => {
   const truncatedDescription = description.slice(0, 100) + "...";
 
   return (
@@ -18,14 +19,14 @@ const Card: React.FC<CardProps> = ({ image, category, title, description }) => {
       </div>
       <div className="px-6 py-4 flex-col flex gap-3 bg-white">
         <p className="text-primary text-base mb-2">{category}</p>
-        <p className="font-bold text-xl mb-2">{title}</p>
+        <p className="font-bold text-md mb-2">{title}</p>
         <div
           className="text-gray-700 text-base"
           dangerouslySetInnerHTML={{
             __html: truncatedDescription,
           }}
         />
-        <a href="#" className="text-primary text-sm flex items-center ">
+        <a href={`/recent-projects/${id}`} className="text-primary text-sm flex items-center ">
           Read More <ChevronRight className="text-sm mt-1" size={16} />
         </a>
       </div>

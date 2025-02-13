@@ -4,16 +4,16 @@ import { Menu } from "../types/menu";
 export const Menus: Menu[] = [
   {
     title: "Home",
-    link: "",
+    id: "",
   },
   {
     title: "What we do",
-    link: "expertise",
+    id: "expertise",
   },
-  {
-    title: "Programmes",
-    link: "programs",
-  },
+  // {
+  //   title: "Programmes",
+  //   link: "programs",
+  // },
   {
     title: "Blogs",
     link: "blogs",
@@ -23,11 +23,11 @@ export const Menus: Menu[] = [
     link: "cases",
   },
   {
-    title: "Events",
-    link: "events",
+    title: "News and Articles",
+    link: "news",
   },
   {
     title: "Contacts Us",
-    link: "contact",
+    id: "contact",
   },
 ];

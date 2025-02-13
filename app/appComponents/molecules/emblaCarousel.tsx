@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
@@ -26,29 +26,40 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
+  const showNavigation = slides.length > 3;
+
   return (
-    <section className="embla bg-gray-200 relative">
+    <section className="embla bg-white relative">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((project, index) => (
             <div className="embla__slide" key={index}>
               <Card
+                id={project.id}
                 title={project.title}
                 category={project.category}
                 image={project.image}
                 description={project.description}
               />
-         </div>
+            </div>
           ))}
         </div>
       </div>
 
-      <div className="embla__controls absolute top-[50%]">
-        <div className="embla__buttons">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+      {showNavigation && (
+        <div className="embla__controls absolute top-[50%] hidden lg:block">
+          <div className="embla__buttons">
+            <PrevButton
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
+            />
+            <NextButton
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

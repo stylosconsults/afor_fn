@@ -1,6 +1,54 @@
-import React from "react";
+"use client";
+
+import { Menu } from "@/app/types/menu";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
 const Footer = () => {
+  const [openMenu, setOpenMenu] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const handleMenuClick = (menu: string, event: React.MouseEvent) => {
+    if (menu) {
+      return;
+    }
+    event.preventDefault();
+    const targetId = menu || "";
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setActiveSection(targetId);
+    }
+
+    setOpenMenu(null);
+    setIsMobileMenuOpen(false);
+  };
+
+  const [formData, setFormData] = useState({
+    email: "",
+  });
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert("Thanks for contacting us! We will get back to you soon");
+    setFormData({
+      email: "",
+    });
+  };
   return (
     <footer className="bg-secondary text-white font-sans">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -61,14 +109,16 @@ const Footer = () => {
 
               <div>
                 <h2 className="text-2xl font-medium text-white">
-                  Request a Demo
+                  Stay Alerted
                 </h2>
 
                 <p className="mt-4 max-w-lg text-white">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Veritatis, harum deserunt nesciunt praesentium, repellendus
-                  eum perspiciatis ratione pariatur a aperiam eius numquam
-                  doloribus asperiores sunt.
+                  Stay informed about our latest initiatives, success stories,
+                  and community impact. Subscribe to our newsletter and be part
+                  of our journey in transforming communities through innovative
+                  development solutions. We'll keep you updated with monthly
+                  insights, project highlights, and opportunities to get
+                  involved.
                 </p>
               </div>
 
@@ -78,13 +128,14 @@ const Footer = () => {
                 <div className="rounded-md border border-primary p-2 focus-within:ring sm:flex sm:items-center sm:gap-4">
                   <input
                     type="email"
+                    required
                     id="UserEmail"
                     placeholder="john@rhcp.com"
-                    className="rounded-md  p-2 focus-within:ring sm:flex sm:items-center sm:gap-4 w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
+                    className="rounded-md text-black p-2 focus-within:ring sm:flex sm:items-center sm:gap-4 w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
                   />
 
                   <button className="mt-1 w-full rounded bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-secondary duration-300 transition-all sm:mt-0 sm:w-auto sm:shrink-0">
-                    Sign Up
+                    Subscribe
                   </button>
                 </div>
               </form>
@@ -93,7 +144,7 @@ const Footer = () => {
 
           <div className="py-8 lg:py-16 lg:pe-16">
             <div className="hidden text-teal-600 lg:block">
-            <img src="/logos/logoAfor.png" alt="" width={150}  height={150}/>
+              <img src="/logos/logoAfor.png" alt="" width={150} height={150} />
             </div>
 
             <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
@@ -103,63 +154,43 @@ const Footer = () => {
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
                     <a
-                      href="#"
+                      onClick={(e) => handleMenuClick("#", e)}
+                      href={`/#`}
                       className="text-gray-300 transition hover:opacity-75"
                     >
                       {" "}
-                      1on1 Coaching{" "}
+                      Home
                     </a>
                   </li>
 
                   <li>
                     <a
-                      href="#"
+                      href="/blogs"
                       className="text-gray-300 transition hover:opacity-75"
                     >
-                      {" "}
-                      Company Review{" "}
+                      Blogs
                     </a>
                   </li>
 
                   <li>
                     <a
-                      href="#"
+                      href="/articles"
                       className="text-gray-300 transition hover:opacity-75"
                     >
-                      {" "}
-                      Accounts Review{" "}
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 transition hover:opacity-75"
-                    >
-                      {" "}
-                      HR Consulting{" "}
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 transition hover:opacity-75"
-                    >
-                      {" "}
-                      SEO Optimisation{" "}
+                      News & Articles
                     </a>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <p className="font-medium text-white">Company</p>
+                <p className="font-medium text-white">AFOR NGO</p>
 
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
                     <a
-                      href="#"
+                      onClick={(e) => handleMenuClick("#about", e)}
+                      href={"#about"}
                       className="text-gray-300 transition hover:opacity-75"
                     >
                       {" "}
@@ -169,21 +200,21 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      onClick={(e) => handleMenuClick("#expertise", e)}
+                      href={"#expertise"}
                       className="text-gray-300 transition hover:opacity-75"
                     >
-                      {" "}
-                      Meet the Team{" "}
+                      What We Do
                     </a>
                   </li>
 
                   <li>
                     <a
-                      href="#"
+                      onClick={(e) => handleMenuClick("/cases", e)}
+                      href={"/cases"}
                       className="text-gray-300 transition hover:opacity-75"
                     >
-                      {" "}
-                      Accounts Review{" "}
+                      Our Cases
                     </a>
                   </li>
                 </ul>
@@ -195,31 +226,11 @@ const Footer = () => {
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href="#contact"
                       className="text-gray-300 transition hover:opacity-75"
                     >
                       {" "}
                       Contact{" "}
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 transition hover:opacity-75"
-                    >
-                      {" "}
-                      FAQs{" "}
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 transition hover:opacity-75"
-                    >
-                      {" "}
-                      Live Chat{" "}
                     </a>
                   </li>
                 </ul>
@@ -227,40 +238,8 @@ const Footer = () => {
             </div>
 
             <div className="mt-8 border-t border-gray-100 pt-8">
-              <ul className="flex flex-wrap gap-4 text-xs">
-                <li>
-                  <a
-                    href="#"
-                    className="text-white transition hover:opacity-75"
-                  >
-                    {" "}
-                    Terms & Conditions{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    className="text-white transition hover:opacity-75"
-                  >
-                    {" "}
-                    Privacy Policy{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    className="text-white transition hover:opacity-75"
-                  >
-                    {" "}
-                    Cookies{" "}
-                  </a>
-                </li>
-              </ul>
-
               <p className="mt-8 text-xs text-white">
-                &copy; 2022. Company Name. All rights reserved.
+                &copy; 2022. AFOR RWANDA. All rights reserved.
               </p>
             </div>
           </div>

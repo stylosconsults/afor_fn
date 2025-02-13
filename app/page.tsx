@@ -24,8 +24,6 @@ export default function Home() {
       <RecentProjects />
       <Testimonials />
       <Articles />
-      <Contact />
-      <Footer />
     </div>
   );
 }

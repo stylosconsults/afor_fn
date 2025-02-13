@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+
 import Image from "next/image";
 import { GradientButton } from "../atoms/button";
 import { Menus } from "@/app/data/menu";
 import {
-  Menu,
+  Menu as MenuIcon,
   X,
   Heart,
   Mail,
@@ -17,16 +18,20 @@ import {
   Construction
 } from "lucide-react";
 import Link from "next/link";
+import { Menu } from "@/app/types/menu";
+import { usePathname } from 'next/navigation';
+
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]");
-      const scrollPosition = window.scrollY + 100; // Offset for better detection
+      const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
@@ -37,25 +42,21 @@ const Navbar = () => {
           scrollPosition >= sectionTop &&
           scrollPosition < sectionTop + sectionHeight
         ) {
-          setActiveSection(sectionId || "home");
+          setActiveSection(sectionId || "");
         }
       });
     };
 
-    // Initial check
+
     handleScroll();
-
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
-
-    // Handle initial hash
-    const hash = window.location.hash.replace("#", "") || "home";
-    setActiveSection(hash);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const isHome = pathname === '/';
 
   const handleMouseEnter = (menu: any) => {
     setOpenMenu(menu);
@@ -69,32 +70,75 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleMenuClick = (menu: any) => {
-    const targetId = menu.link.replace("#", "");
-    setActiveSection(targetId);
-    setOpenMenu((prevMenu) => (prevMenu === menu ? null : menu));
+  const handleMenuClick = (menu: Menu, event: React.MouseEvent) => {
+    if (menu.link) {
+      return;
+    }
+    event.preventDefault();
+    const targetId = menu.id || "";
+    const targetSection = document.getElementById(targetId);
+    
+    if (isHome) {
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        setActiveSection(targetId);
+      }
+    } else {
+      window.location.href = `/#${targetId}`;
+    }
+
+    setOpenMenu(null);
     setIsMobileMenuOpen(false);
   };
 
-  const isActive = (link: string) => {
-    const sectionId = link.replace("#", "");
-    return activeSection === sectionId;
+  const isActive = (menu: Menu) => {
+    if (menu.id) {
+      return activeSection === menu.id;
+    }
+    return false;
   };
 
-  const googleMapsUrl =
-    "https://www.google.com/maps/search/?api=1&query=Kicukiro+KK+515+Street+Kigali+Rwanda";
+  const renderMenuLink = (menu: Menu) => {
+    if (menu.link) {
+      return (
+        <Link
+          href={`/${menu.link}`}
+          className={`uppercase font-epilogue text-xs font-bold truncate transition-colors hover:text-primary-500`}
+        >
+          {menu.title}
+        </Link>
+      );
+    }
+    return (
+      <a
+        href={menu.id ? `#${menu.id}` : '#'}
+        className={`uppercase font-epilogue text-xs font-bold truncate transition-colors ${
+          isActive(menu)
+            ? "text-primary-500"
+            : "hover:text-primary-500"
+        }`}
+        onClick={(e) => handleMenuClick(menu, e)}
+      >
+        {menu.title}
+      </a>
+    );
+  };
 
   return (
-    <nav className="font-circular  transition-all duration-300 font-normal text-base xl:text-medium text-black dark:text-white">
+    <nav className="font-circular transition-all duration-300 font-normal text-base xl:text-medium text-black dark:text-white">
       {/* Top Contact Bar */}
       <div className="bg-secondary text-white py-2">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between items-center space-y-2 md:space-y-0">
-            {/* Location - Always visible */}
+            {/* Location */}
             <div className="flex items-center space-x-2">
               <MapPin className="h-4 w-4" />
               <a
-                href={googleMapsUrl}
+                href="https://www.google.com/maps/search/?api=1&query=Kicukiro+KK+515+Street+Kigali+Rwanda"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm cursor-pointer hover:text-gray-300"
@@ -110,7 +154,7 @@ const Navbar = () => {
                 </span>
               </div>
             </div>
-            {/* Contact Info - Collapsible on mobile */}
+            {/* Contact Info */}
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0">
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
@@ -118,7 +162,7 @@ const Navbar = () => {
                   href="mailto:info@afor.org"
                   className="text-sm hover:text-gray-300"
                 >
-                  info@afor.com
+                  info@aforwanda.org
                 </a>
               </div>
               <div className="hidden md:block mx-4 text-gray-400">|</div>
@@ -164,10 +208,9 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <div className="container mx-auto ">
+      <div className="container mx-auto">
         <div className="flex items-center justify-between p-4 relative">
-          <div className="flex  items-center">
-            {" "}
+          <div className="flex items-center">
             <Image
               width={180}
               height={180}
@@ -176,9 +219,7 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Navigation Links and Donate Button */}
-          <div className="flex items-center gap-6 text-white">
-            {/* Desktop Menu Items */}
+          <div className={`flex items-center gap-6 ${isHome ? 'text-white' : 'text-black'}`}>
             <div className="hidden lg:flex items-center space-x-6">
               {Menus.map((menu, index) => (
                 <div
@@ -187,21 +228,10 @@ const Navbar = () => {
                   onMouseEnter={() => handleMouseEnter(menu.title)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <a
-                    href={`#${menu.link}`}
-                    className={`uppercase font-epilogue text-xs font-bold truncate transition-colors ${
-                      isActive(menu.link)
-                        ? "text-primary-500"
-                        : "hover:text-primary-500"
-                    }`}
-                    onClick={() => handleMenuClick(menu)}
-                  >
-                    {menu.title}
-                  </a>
+                  {renderMenuLink(menu)}
                 </div>
               ))}
             </div>
-
             {/* Donate Button */}
             <GradientButton
               icon={<Heart className="fill-red-500 text-red-500" />}
@@ -219,7 +249,7 @@ const Navbar = () => {
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6 animate-fade-in" />
               ) : (
-                <Menu className="h-6 w-6 animate-fade-in" />
+                <MenuIcon className="h-6 w-6 animate-fade-in" />
               )}
             </button>
           </div>
@@ -232,17 +262,7 @@ const Navbar = () => {
           <div className="container mx-auto px-4 py-2 space-y-1">
             {Menus.map((menu, index) => (
               <div key={index} className="relative">
-                <a
-                  href={`#${menu.link}`}
-                  className={`block w-full font-epilogue py-2 transition-colors ${
-                    isActive(menu.link)
-                      ? "text-primary-500"
-                      : "hover:text-primary-500"
-                  }`}
-                  onClick={() => handleMenuClick(menu)}
-                >
-                  {menu.title}
-                </a>
+                {renderMenuLink(menu)}
               </div>
             ))}
           </div>

@@ -1,12 +1,16 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 import { useState, useRef, useId, useEffect } from "react";
 
 interface SlideData {
-  title: string;
-  description: string;
-  button: string;
-  src: string;
+  id?: string;
+  title?: string;
+  description?: string;
+  shortDescription?: string;
+  button?: string;
+  src?: string;
+  fullContent?: string;
 }
 
 interface SlideProps {
@@ -14,9 +18,16 @@ interface SlideProps {
   index: number;
   current: number;
   handleSlideClick: (index: number) => void;
+  handleReadMore: (id: string) => void;
 }
 
-const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
+const Slide = ({
+  slide,
+  index,
+  current,
+  handleSlideClick,
+  handleReadMore,
+}: SlideProps) => {
   const slideRef = useRef<HTMLLIElement>(null);
 
   const xRef = useRef<number>(0);
@@ -63,7 +74,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     event.currentTarget.style.opacity = "1";
   };
 
-  const { src, button, title, description } = slide;
+  const { src, button, title, shortDescription, id } = slide;
 
   return (
     <div className="[perspective:1200px] [transform-style:preserve-3d]">
@@ -115,9 +126,12 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           <h2 className="text-lg md:text-2xl lg:text-4xl font-semibold  relative">
             {title}
           </h2>
-          <p>{description}</p>
+          <p className="text-start py-4">{shortDescription}</p>
           <div className="flex justify-center">
-            <button className="mt-6  px-4 py-2 w-fit mx-auto sm:text-sm text-black bg-white h-12 border border-transparent text-xs flex justify-center items-center rounded-2xl hover:shadow-lg transition duration-200 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+            <button
+              onClick={() => handleReadMore(id as string)}
+              className="mt-6 bg-secondary  px-4 py-2 w-fit mx-auto sm:text-sm text-white  h-12 border border-transparent text-xs flex justify-center items-center rounded-2xl hover:shadow-lg transition duration-200 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+            >
               {button}
             </button>
           </div>
@@ -155,29 +169,31 @@ interface CarouselProps {
 }
 
 export function Carousel({ slides }: CarouselProps) {
-    const [current, setCurrent] = useState(0);
-  
-    const handlePreviousClick = () => {
-      const previous = current - 1;
-      setCurrent(previous < 0 ? slides.length - 1 : previous);
-    };
-  
-    const handleNextClick = () => {
-      const next = current + 1;
-      setCurrent(next === slides.length ? 0 : next);
-    };
-  
-    const handleSlideClick = (index: number) => {
-      if (current !== index) {
-        setCurrent(index);
-      }
-    };
-  
-    const id = useId();
-  
-    return (
-        <>
-       
+  const [current, setCurrent] = useState(0);
+  const router = useRouter();
+
+  const handlePreviousClick = () => {
+    const previous = current - 1;
+    setCurrent(previous < 0 ? slides.length - 1 : previous);
+  };
+
+  const handleNextClick = () => {
+    const next = current + 1;
+    setCurrent(next === slides.length ? 0 : next);
+  };
+
+  const handleSlideClick = (index: number) => {
+    if (current !== index) {
+      setCurrent(index);
+    }
+  };
+
+  const id = useId();
+  const handleReadMore = (articleId: string) => {
+    router.push(`/articles/${articleId}`);
+  };
+  return (
+    <>
       <div className="relative  overflow-hidden">
         <div
           className=" w-[70vw] h-[70vmin] mx-auto"
@@ -186,13 +202,16 @@ export function Carousel({ slides }: CarouselProps) {
           <ul
             className="absolute flex transition-transform duration-1000 ease-in-out"
             style={{
-              transform: `translateX(calc(-${current * (100 / slides.length)}% + ${4 * current}vmin))`,
-              marginLeft: "4vmin"
+              transform: `translateX(calc(-${
+                current * (100 / slides.length)
+              }% + ${4 * current}vmin))`,
+              marginLeft: "4vmin",
             }}
           >
             {slides.map((slide, index) => (
               <Slide
                 key={index}
+                handleReadMore={() => handleReadMore(slide?.id as string)}
                 slide={slide}
                 index={index}
                 current={current}
@@ -200,21 +219,20 @@ export function Carousel({ slides }: CarouselProps) {
               />
             ))}
           </ul>
-  
         </div>
-      </div> 
+      </div>
       <div className=" py-4 flex justify-center w-full top-[calc(100%+1rem)]">
-            <CarouselControl
-              type="previous"
-              title="Go to previous slide"
-              handleClick={handlePreviousClick}
-            />
-            <CarouselControl
-              type="next"
-              title="Go to next slide"
-              handleClick={handleNextClick}
-            />
-          </div>
-      </>
-    );
-  }
+        <CarouselControl
+          type="previous"
+          title="Go to previous slide"
+          handleClick={handlePreviousClick}
+        />
+        <CarouselControl
+          type="next"
+          title="Go to next slide"
+          handleClick={handleNextClick}
+        />
+      </div>
+    </>
+  );
+}
