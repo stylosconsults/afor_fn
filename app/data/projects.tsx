@@ -79,3 +79,53 @@ const recentProjects = [
   
   export default recentProjects;
   
+
+  export const projectsData = [
+    {
+      id: 1,
+      title: "Greener Future",
+      subtitle: "Your Support Matters!",
+      startDate: "01 April, 2025",
+      goal: 200000,
+      raised: 0,
+      description: `<div class="space-y-4">
+        <p>We are excited to launch the <strong>Greener Futures Project</strong>, an initiative dedicated to promoting sustainable environmental practices, empowering communities, and tackling climate challenges in Rwanda.</p>
+        
+        <div class="space-y-2">
+          <p class="font-semibold">With your support, we aim to:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Restore degraded landscapes and promote climate-smart agriculture</li>
+            <li>Empower local communities, especially women and youth, with green skills</li>
+            <li>Improve access to sustainable energy solutions</li>
+          </ul>
+        </div>
+        
+        <p>Every contribution brings us closer to <strong>a greener, more resilient future</strong>. Whether big or small, your donation will <strong>directly impact communities and drive real change</strong>.</p>
+      </div>`,
+      image: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739545113/greener_g2n2eo.jpg"
+    },
+    {
+      id: 2,
+      title: "SheRises Rwanda",
+      subtitle: "Empower Women, Transform Lives",
+      startDate: "15 May, 2025",
+      goal: 50000,
+      raised: 0,
+      description: `<div class="space-y-4">
+        <p>We are thrilled to launch <strong>SheRises Rwanda</strong>, a transformative initiative dedicated to empowering women and girls through skills development, economic opportunities, and social support.</p>
+        
+        <div class="space-y-2">
+          <p class="font-semibold">With your support, we aim to:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Equip women with vocational and entrepreneurship skills for financial independence</li>
+            <li>Provide mentorship and leadership training to inspire future female leaders</li>
+            <li>Create safe spaces where women and girls can thrive, grow, and heal</li>
+          </ul>
+        </div>
+        
+        <p>Every contribution directly supports women and girls in Rwanda, helping them rise above challenges and build stronger, brighter futures.</p>
+      </div>`,
+      image: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205349/WhatsApp_Image_2025-02-10_at_12.52.15_r62zqr.jpg"
+    }
+  ];
+  

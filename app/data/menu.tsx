@@ -20,11 +20,11 @@ export const Menus: Menu[] = [
   },
   {
     title: "Case Studies",
-    link: "cases",
+    link: "latest-projects",
   },
   {
     title: "News and Articles",
-    link: "news",
+    link: "articles",
   },
   {
     title: "Contacts Us",

@@ -147,12 +147,12 @@ const Navbar = () => {
               </a>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="flex items-center space-x-2">
+              {/* <div className="flex items-center space-x-2">
                 <Construction className="h-6 w-6 text-yellow-600" />
                 <span className="font-semibold text-yellow-700">
                   Website Under Construction
                 </span>
-              </div>
+              </div> */}
             </div>
             {/* Contact Info */}
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0">
@@ -162,7 +162,7 @@ const Navbar = () => {
                   href="mailto:info@afor.org"
                   className="text-sm hover:text-gray-300"
                 >
-                  info@aforwanda.org
+                  info@afor.rw
                 </a>
               </div>
               <div className="hidden md:block mx-4 text-gray-400">|</div>
@@ -172,7 +172,7 @@ const Navbar = () => {
                   href="tel:+1234567890"
                   className="text-sm hover:text-gray-300"
                 >
-                  +1 (234) 567-890
+                  +250 (788) 303-907
                 </a>
               </div>
               <div className="hidden md:block mx-4 text-gray-400">|</div>

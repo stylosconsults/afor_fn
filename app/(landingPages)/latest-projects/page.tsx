@@ -1,12 +1,19 @@
+"use client";
+
 import React from "react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { GradientButton } from '@/app/appComponents/atoms/button';
+import { GradientButton } from "@/app/appComponents/atoms/button";
 import { Heart, Calendar, Target, Users } from "lucide-react";
 import { projectsData } from "@/app/data/projects";
 
-const LatestProjects = () => {
-
+export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
@@ -15,13 +22,17 @@ const LatestProjects = () => {
             Our Impact Projects
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join us in making a difference. Your support transforms lives and builds stronger communities in Rwanda.
+            Join us in making a difference. Your support transforms lives and
+            builds stronger communities in Rwanda.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projectsData.map((project) => (
-            <Card key={project.id} className="overflow-hidden border-none shadow-lg">
+            <Card
+              key={project.id}
+              className="overflow-hidden border-none shadow-lg"
+            >
               <div className="relative h-64">
                 <img
                   src={project.image}
@@ -38,8 +49,12 @@ const LatestProjects = () => {
               </div>
 
               <CardHeader>
-                <CardTitle className="text-2xl font-serif">{project.title}</CardTitle>
-                <CardDescription className="text-lg">{project.subtitle}</CardDescription>
+                <CardTitle className="text-2xl font-serif">
+                  {project.title}
+                </CardTitle>
+                <CardDescription className="text-lg">
+                  {project.subtitle}
+                </CardDescription>
               </CardHeader>
 
               <CardContent className="space-y-6">
@@ -63,8 +78,13 @@ const LatestProjects = () => {
                     className="h-2 bg-gray-200"
                   />
                   <div className="flex justify-between items-center text-sm text-gray-600">
-                    <span>{((project.raised / project.goal) * 100).toFixed(1)}% Complete</span>
-                    <span>${(project.goal - project.raised).toLocaleString()} to go</span>
+                    <span>
+                      {((project.raised / project.goal) * 100).toFixed(1)}%
+                      Complete
+                    </span>
+                    <span>
+                      ${(project.goal - project.raised).toLocaleString()} to go
+                    </span>
                   </div>
 
                   <GradientButton
@@ -81,6 +101,4 @@ const LatestProjects = () => {
       </div>
     </div>
   );
-};
-
-export default LatestProjects;
+}
