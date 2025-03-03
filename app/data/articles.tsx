@@ -1,12 +1,14 @@
 export const articles = [
-    {
-      id: "child-safety",
-      title: "Every Child Deserves Love, Safety, and a Future Full of Hope",
-      description: "A child's world should be filled with laughter, love, and the simple joys of childhood. Their homes should be safe spaces where they feel protected, valued, and nurtured.",
-      shortDescription: "Discover how AFOR is working to ensure every child has a safe and loving home through education, advocacy, and direct intervention.",
-      button: "Read More",
-      src: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412708/africanChildren2_rmggon.jpg",
-      fullContent: `
+  {
+    id: "child-safety",
+    title: "Every Child Deserves Love, Safety, and a Future Full of Hope",
+    description:
+      "A child's world should be filled with laughter, love, and the simple joys of childhood. Their homes should be safe spaces where they feel protected, valued, and nurtured.",
+    shortDescription:
+      "Discover how AFOR is working to ensure every child has a safe and loving home through education, advocacy, and direct intervention.",
+    button: "Read More",
+    src: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412708/africanChildren2_rmggon.jpg",
+    fullContent: `
         <div class="article-content">
           <h1 class="text-4xl font-bold mb-6">Every Child Deserves Love, Safety, and a Future Full of Hope</h1>
           
@@ -57,16 +59,19 @@ export const articles = [
           
           <p class="text-xl font-bold text-center italic mb-6">✨ Because every child deserves more than just survival. They deserve to thrive. ✨</p>
         </div>
-      `
-    },
-    {
-      id: "strong-families",
-      title: "Strong Families, Strong Communities: The Power of Family Empowerment",
-      description: "A family is more than just a home—it is where love, security, and hope begin. When families are strong, children thrive, communities grow, and the future becomes brighter.",
-      shortDescription: "Learn about AFOR's family empowerment programs and how they're transforming lives through conflict resolution and economic stability.",
-      button: "Read More",
-      src: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412708/africanChildren2_rmggon.jpg",
-      fullContent: `
+      `,
+  },
+  {
+    id: "strong-families",
+    title:
+      "Strong Families, Strong Communities: The Power of Family Empowerment",
+    description:
+      "A family is more than just a home—it is where love, security, and hope begin. When families are strong, children thrive, communities grow, and the future becomes brighter.",
+    shortDescription:
+      "Learn about AFOR's family empowerment programs and how they're transforming lives through conflict resolution and economic stability.",
+    button: "Read More",
+    src: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741097410/WhatsApp_Image_2025-03-04_at_15.31.46_fmpibg.jpg",
+    fullContent: `
         <div class="article-content">
           <h1 class="text-4xl font-bold mb-6">Strong Families, Strong Communities: The Power of Family Empowerment</h1>
           
@@ -130,16 +135,18 @@ export const articles = [
             <li class="mb-2">Because strong families create a strong future.</li>
           </ul>
         </div>
-      `
-    },
-    {
-      id: "greener-futures",
-      title: "Greener Futures: Protecting Our Planet, Empowering Communities",
-      description: "The air we breathe, the water we drink, and the land we depend on are at risk. Climate change is no longer a distant threat—it is happening now.",
-      shortDescription: "Explore AFOR's Greener Futures project and our commitment to environmental sustainability and community empowerment.",
-      button: "Read More",
-      src: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412708/africanChildren2_rmggon.jpg",
-      fullContent: `
+      `,
+  },
+  {
+    id: "greener-futures",
+    title: "Greener Futures: Protecting Our Planet, Empowering Communities",
+    description:
+      "The air we breathe, the water we drink, and the land we depend on are at risk. Climate change is no longer a distant threat—it is happening now.",
+    shortDescription:
+      "Explore AFOR's Greener Futures project and our commitment to environmental sustainability and community empowerment.",
+    button: "Read More",
+    src: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741097424/WhatsApp_Image_2025-03-04_at_16.00.44_t1jvxj.jpg",
+    fullContent: `
         <div class="article-content">
           <h1 class="text-4xl font-bold mb-6">Greener Futures: Protecting Our Planet, Empowering Communities</h1>
           
@@ -182,6 +189,6 @@ export const articles = [
             <li class="mb-2"><span class="font-bold">Education & Advocacy:</span> Raising awareness on climate action, conservation, and environmental rights to create a generation of eco-champions.</li>
           </ul>
         </div>
-      `
-    }
-  ];
+      `,
+  },
+];

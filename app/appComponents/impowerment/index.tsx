@@ -10,15 +10,15 @@ const Impowerment = () => {
   const images: ImageType[] = [
     {
       title: "Empower women",
-      link: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1738051050/annie-spratt-2INKkSrEmc8-unsplash_vbj68l.jpg",
+      link: "https://res.cloudinary.com/dexaxaqjx/image/upload/c_crop,w_500,h_500,ar_1:1,g_auto/v1741016469/WhatsApp_Image_2025-03-03_at_15.54.53_ggaltn.jpg",
     },
     {
       title: "Tuberculosis",
-      link: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739450143/cdc-4U6qzwNu-Ns-unsplash_v9hql2.jpg",
+      link: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741098560/WhatsApp_Image_2025-03-04_at_16.27.11_dhazda.jpg",
     },
     {
       title: "Safe Water and Sustainable Sanitation",
-      link: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412666/natureAnimal_lb9b4y.jpg",
+      link: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741098828/WhatsApp_Image_2025-03-04_at_16.33.30_thsi39.jpg",
     },
   ];
 

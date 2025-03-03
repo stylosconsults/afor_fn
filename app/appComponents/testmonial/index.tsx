@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { Users } from "lucide-react";
 import { AnimatedTestimonials } from "./card";
 import { GradientButton } from "../atoms/button";
+import { scrollToSection } from "@/app/lib/smoothScroll";
 
 const Testimonials = () => {
   const testimonies = [
@@ -99,10 +101,15 @@ const Testimonials = () => {
             ))}
           </div>
           <div>
-            <GradientButton icon="" className="bg-primary cursor-pointer">
+            <GradientButton
+              onClick={() => scrollToSection("contact")}
+              icon=""
+              className="bg-primary cursor-pointer"
+            >
               Joint campaigns.
             </GradientButton>
             <GradientButton
+              onClick={() => scrollToSection("contact")}
               icon=""
               className="bg-transparent cursor-pointer hover:bg-primary text-white border border-primary"
             >

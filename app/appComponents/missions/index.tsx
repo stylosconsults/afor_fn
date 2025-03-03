@@ -82,7 +82,7 @@ const OrganizationOverview = () => {
   };
 
   return (
-    <div className="bg-white py-10">
+    <div className="bg-white py-10" id="mission">
       <InMotion>
         <div className="container lg:w-full  justify-center mx-auto font-serif mt-20 flex flex-col lg:flex-row gap-4">
           <div className="lg:w-2/5 lg:pr-4">
@@ -90,7 +90,7 @@ const OrganizationOverview = () => {
               className="relative h-[70vh]   bg-cover bg-center flex items-center  justify-center"
               style={{
                 backgroundImage:
-                  "url('https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412751/leadership_d8o2tu.jpg')",
+                  "url('https://res.cloudinary.com/dexaxaqjx/image/upload/v1741016338/WhatsApp_Image_2025-03-03_at_15.04.41_rplglw.jpg')",
               }}
             >
               <div className="absolute inset-0 bg-black bg-opacity-60 gap-10 flex flex-col items-center justify-center text-white text-start p-6">
