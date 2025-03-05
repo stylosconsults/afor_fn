@@ -4,7 +4,7 @@ const recentProjects = [
       title: "Urukundo Nirwogere Project",
       subtitle: "Restoring Love, Strengthening Families",
       category: "Family Empowerment",
-      image: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412666/natureAnimal_lb9b4y.jpg",
+      image: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741016637/2_1_lm1b7d.jpg",
       description: `
         <div class="project-content">
           <p class="mb-6">
@@ -125,7 +125,7 @@ const recentProjects = [
         
         <p>Every contribution directly supports women and girls in Rwanda, helping them rise above challenges and build stronger, brighter futures.</p>
       </div>`,
-      image: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205349/WhatsApp_Image_2025-02-10_at_12.52.15_r62zqr.jpg"
+      image: "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741098620/WhatsApp_Image_2025-03-04_at_16.14.39_w0fzvo.jpg"
     }
   ];
   

@@ -54,7 +54,6 @@ const Footer = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2">
           <div className="border-b border-gray-100 py-8 lg:order-last lg:border-b-0 lg:border-s lg:py-16 lg:ps-16">
-
             <div className="mt-8 space-y-4 lg:mt-0">
               <span className="hidden h-1 w-10 rounded bg-white lg:block"></span>
 
@@ -161,8 +160,8 @@ const Footer = () => {
 
                   <li>
                     <a
-                      onClick={(e) => handleMenuClick("/cases", e)}
-                      href={"/cases"}
+                      onClick={(e) => handleMenuClick("/latest-projects", e)}
+                      href={"/latest-projects"}
                       className="text-gray-300 transition hover:opacity-75"
                     >
                       Our Cases

@@ -15,12 +15,12 @@ import {
   Twitter,
   Linkedin,
   Instagram,
-  Construction
+  Construction,
 } from "lucide-react";
 import Link from "next/link";
 import { Menu } from "@/app/types/menu";
-import { usePathname } from 'next/navigation';
-
+import { usePathname } from "next/navigation";
+import { scrollToSection } from "@/app/lib/smoothScroll";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(null);
@@ -47,7 +47,6 @@ const Navbar = () => {
       });
     };
 
-
     handleScroll();
     window.addEventListener("scroll", handleScroll);
 
@@ -56,7 +55,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const isHome = pathname === '/';
+  const isHome = pathname === "/";
 
   const handleMouseEnter = (menu: any) => {
     setOpenMenu(menu);
@@ -77,13 +76,13 @@ const Navbar = () => {
     event.preventDefault();
     const targetId = menu.id || "";
     const targetSection = document.getElementById(targetId);
-    
+
     if (isHome) {
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
         targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+          behavior: "smooth",
+          block: "start",
         });
         setActiveSection(targetId);
       }
@@ -115,11 +114,9 @@ const Navbar = () => {
     }
     return (
       <a
-        href={menu.id ? `#${menu.id}` : '#'}
+        href={menu.id ? `#${menu.id}` : "#"}
         className={`uppercase font-epilogue text-xs font-bold truncate transition-colors ${
-          isActive(menu)
-            ? "text-primary-500"
-            : "hover:text-primary-500"
+          isActive(menu) ? "text-primary-500" : "hover:text-primary-500"
         }`}
         onClick={(e) => handleMenuClick(menu, e)}
       >
@@ -194,7 +191,7 @@ const Navbar = () => {
                   <Linkedin className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://instagram.com/example"
+                  href="https://www.instagram.com/urugerorwibishoboka"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gray-300"
@@ -219,7 +216,11 @@ const Navbar = () => {
             />
           </div>
 
-          <div className={`flex items-center gap-6 ${isHome ? 'text-white' : 'text-black'}`}>
+          <div
+            className={`flex items-center gap-6 ${
+              isHome ? "text-white" : "text-black"
+            }`}
+          >
             <div className="hidden lg:flex items-center space-x-6">
               {Menus.map((menu, index) => (
                 <div
@@ -234,6 +235,7 @@ const Navbar = () => {
             </div>
             {/* Donate Button */}
             <GradientButton
+              onClick={() => scrollToSection("contact")}
               icon={<Heart className="fill-red-500 text-red-500" />}
               className="cursor-pointer bg-secondary font-epilogue uppercase relative md:w-auto text-white"
             >

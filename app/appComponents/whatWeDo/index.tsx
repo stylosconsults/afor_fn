@@ -5,7 +5,7 @@ const WhatWeDo = () => {
   const sections = [
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412692/children1_tyfzf7.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741097335/WhatsApp_Image_2025-03-04_at_15.26.34_ze2nps.jpg",
       title: "Technology & Education Access",
       description:
         "Programs: Offering digital literacy workshops and scholarships for marginalized students.",
@@ -23,7 +23,7 @@ const WhatWeDo = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412747/group-3137670_mxidfa.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741097321/WhatsApp_Image_2025-03-04_at_15.26.32_xbhxzw.jpg",
       title: "Environmental Stewardship",
       description:
         "Projects: Tree-planting campaigns and promoting renewable energy in rural communities.",
@@ -32,7 +32,7 @@ const WhatWeDo = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205349/WhatsApp_Image_2025-02-10_at_12.52.15_r62zqr.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741099218/WhatsApp_Image_2025-03-03_at_16.03.54_y1gzii.jpg",
       title: "Human Rights & Gender Equality",
       description:
         "Campaigns: Educating communities on human rights and addressing systemic gender inequities.",
@@ -41,7 +41,7 @@ const WhatWeDo = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205284/WhatsApp_Image_2025-02-10_at_11.26.10_ghnb1d.jpg",
+        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1741099007/WhatsApp_Image_2025-03-04_at_15.26.29_yewgcq.jpg",
       title: "Community Empowerment",
       description:
         "Focus: Capacity-building workshops and Voluntary Savings and Loans (VSL) initiatives.",

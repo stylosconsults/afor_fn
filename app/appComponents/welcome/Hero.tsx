@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import InMotion from "@/utils/inMotion";
+import { usePathname } from "next/navigation";
+import { scrollToSection } from "@/app/lib/smoothScroll";
 
 interface CarouselImage {
   image: string;
@@ -10,6 +12,10 @@ interface CarouselImage {
 }
 
 const Hero = () => {
+  const [openMenu, setOpenMenu] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname();
   const carouselImage: CarouselImage[] = [
     {
       image:
@@ -33,11 +39,6 @@ const Hero = () => {
     },
     {
       image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1739205349/WhatsApp_Image_2025-02-10_at_12.56.11_ppgjks.jpg",
-      title: "Food Security Initiatives",
-    },
-    {
-      image:
         "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412705/technology_tctxfr.jpg",
       title: "technology access",
     },
@@ -45,11 +46,6 @@ const Hero = () => {
       image:
         "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412742/nature_d6chtp.jpg",
       title: "nature",
-    },
-    {
-      image:
-        "https://res.cloudinary.com/dexaxaqjx/image/upload/v1737412754/foodInitiative1_isrg70.jpg",
-      title: "Community Needs",
     },
   ];
 
@@ -64,6 +60,7 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, [carouselImage.length]);
+
 
   return (
     <div className=" font-serif min-h-screen text-white" id="home">
@@ -106,11 +103,17 @@ const Hero = () => {
           </InMotion>
           <InMotion delay={0.5}>
             <div className="flex md:flex-row flex-col gap-4">
-              <button className="px-4 justify-center md:justify-start  py-3 xs:px-8 xs:py-3 rounded-[4px] bg-primary text-white flex items-center space-x-2 hover:bg-gray-700 transition-all">
+              <button
+                onClick={() => scrollToSection("mission")}
+                className="px-4 justify-center md:justify-start py-3 xs:px-8 xs:py-3 rounded-[4px] bg-primary text-white flex items-center space-x-2 hover:bg-gray-700 transition-all"
+              >
                 <span>Learn About Our Mission</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
-              <button className="px-4 justify-center md:justify-start py-3 xs:px-8 xs:py-3 rounded-[4px] bg-white   flex items-center space-x-2 hover:bg-primary transition-colors text-black">
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-4 justify-center md:justify-start py-3 xs:px-8 xs:py-3 rounded-[4px] bg-white flex items-center space-x-2 hover:bg-primary transition-colors text-black"
+              >
                 <span>Join Our Efforts</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
