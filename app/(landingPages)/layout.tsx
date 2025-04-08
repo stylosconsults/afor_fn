@@ -4,6 +4,8 @@ import Footer from "../appComponents/footer";
 import Navbar from "../appComponents/navbar/navbar";
 import Contact from "../appComponents/contact";
 import "./../globals.css";
+import { WhatsAppButton } from "../appComponents/tsapButton";
+import { SmsButton } from "../appComponents/smsButton";
 
 export const metadata: Metadata = {
   title: {
@@ -49,6 +51,14 @@ export default function LandingLayout({
         {children}
       </body>
       <div>
+        <WhatsAppButton
+          phoneNumber="+250788303907"
+          message="Hi! I would like to know more about your services."
+        />
+        <SmsButton
+          phoneNumber="+250788303907"
+          message="Hi! I would like to know more about your services."
+        />
         <Contact />
         <Footer />
       </div>
