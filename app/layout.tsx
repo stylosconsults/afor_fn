@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,9 @@ export default function LandingLayout({
     <html lang="en">
       <head></head>
       <body>{children}</body>
-      <div></div>
+      <div>
+        <Toaster />
+      </div>
     </html>
   );
 }
